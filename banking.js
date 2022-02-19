@@ -16,17 +16,13 @@ function getInnerText(fieldId) {
 }
 // update input value in their field
 function getAmount(amountId, amount) {
-    const getAmountField = document.getElementById(amountId);
-    const amountValueInText = getAmountField.innerText;
-    const amountValue = parseFloat(amountValueInText);
+    const amountValue = getInnerText(amountId);
     const value = amountValue + amount;
-    getAmountField.innerText = value;
+    document.getElementById(amountId).innerText = value;
 }
 // total balance update
 function updateCurrentBalance(amount, isAdding) {
-    const currentBalance = document.getElementById('current-balance');
-    const currentBalanceInText = currentBalance.innerText;
-    const currentBalanceValue = parseFloat(currentBalanceInText);
+    const currentBalanceValue = getInnerText('current-balance');
     let balance;
     if (isAdding == true) {
         balance = currentBalanceValue + amount;
@@ -34,7 +30,7 @@ function updateCurrentBalance(amount, isAdding) {
     else {
         balance = currentBalanceValue - amount;
     }
-    currentBalance.innerText = balance;
+    document.getElementById('current-balance').innerText = balance;
 }
 // deposite button
 document.getElementById('deposite-button').addEventListener('click', function () {
